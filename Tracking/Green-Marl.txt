@@ -1,0 +1,140 @@
+
+09-01-2015:
+
+Green-Marl 
+  domain specific language for data analysis
+gm_comp
+  the compiler for Green-Marl; generates a .cc file(C++ functions)
+  can be comiled with gcc
+
+
+
+Get Green-Marl:
+git clone git://github.com/stanford-ppl/Green-Marl.git
+
+**Pull new frequently and rebuild the compiler with a make clean_all before a make
+
+BUILD COMPILER:-------------------------
+
+cd ...directory of Green-Marl
+make compiler
+cd .../bin
+
+./gm_comp -h for compiler options
+
+
+
+Sample Programs:
+../apps/src
+
+
+Compiling Green-Marl Programs with gm_comp----------------
+
+cd ../apps
+make gen
+
+Source Code Generated---------------------------------
+cd ../apps/output_cpp/generated
+
+Trying to Compile Graph and Runtime library
+Open the following file and change the NODE_SIZE and EDGE_SIZE to 32.
+$(top)/apps/output_cpp/common.mk
+
+Now tried compiling---------------------
+$cd $(top)/apps/
+$make lib
+
+%%%% Check libgmgraph.a has been successfully created.
+$ls $(top)/apps/output_cpp/gm_graph/lib
+Output was 'libgmgraph.a'
+
+Compiling generated C++ files-----------------------
+$cd $(top)/apps/
+$make bin 
+$cd $(top)/apps/output_cpp/bin   %% check if executables are successfully generated
+
+You can see executables at 'output_cpp/bin/'
+A suggested shortcut to do Compiling Green Marl right before executing is the following:
+$cd $(top)
+$make apps
+
+Executing Sample Programs-------------------------
+Assume that 'graph_gen' has successfully been built into '(top)/apps/output_cpp/bin'
+Where (top) is kaya1/aavila/pin.../Green-Marl/apps/outpu...
+cd $(top)/apps/output_cpp
+
+%%%% Synthesize a uniform random graph (1m nodes, 8m edges).
+bin/graph_gen 1000000 8000000 data/u1m_8m.bin 0
+
+%%%% Run conductance algorithm on the uniform graph with one thread.
+bin/conduct data/u1m_8m.bin 1
+
+%%%% Run conductance algorithm on the uniorm graph with 8 threads.
+bin/conduct data/u1m_8m.bin 8
+
+%%%% Try remaining sample applications (pagerank, bc, kosaraju)
+%%%% All of them have the same following command-line arguments
+%%%%   <program name> <graph name> <# of threads>
+
+This was the output:
+$bin/graph_gen 1000000 8000000 data/u1m_8m.bin 0
+Creating Graph, N =                                                          1000000, M =                                                          8000000 , Type = 0
+creation time (ms) = 493.283000
+saving to file = data/u1m_8m.bin
+storing time (ms) = 1041.626000
+
+Run the following with 1 thread (note the argument at the end)
+$bin/conduct data/u1m_8m.bin 1
+running with 1 threads
+N = 1000000, M = 8000000
+graph loading time=804.490000
+reverse edge creation time=0.000000
+running time=70.073000
+sum C = 3.000369
+
+Now run with 8 threads
+$bin/conduct data/u1m_8m.bin 8
+running with 8 threads
+N = 1000000, M = 8000000
+graph loading time=522.391000
+reverse edge creation time=0.000000
+running time=17.708000
+sum C = 3.000369
+
+Now we ran the .bin file from above using bin/sssp and not bin/conduct:
+$bin/sssp data/u1m_8m.bin 1
+running with 1 threads
+N = 1000000, M = 8000000
+graph loading time=787.953000
+reverse edge creation time=0.000000
+running time=688.132000
+dist[0] = 0
+dist[1] = 203
+dist[2] = 222
+dist[3] = 188
+dist[4] = 198
+dist[5] = 221
+dist[6] = 175
+dist[7] = 239
+dist[8] = 233
+dist[9] = 199
+
+And with 8 threads using sssp:
+$bin/sssp data/u1m_8m.bin 8
+running with 8 threads
+N = 1000000, M = 8000000
+graph loading time=527.568000
+reverse edge creation time=0.001000
+running time=152.063000
+dist[0] = 0
+dist[1] = 203
+dist[2] = 222
+dist[3] = 188
+dist[4] = 198
+dist[5] = 221
+dist[6] = 175
+dist[7] = 239
+dist[8] = 233
+dist[9] = 199
+
+

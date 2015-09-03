@@ -1,0 +1,35 @@
+CS449- Senior Thesis
+Yuho Jin
+Fall 2015
+
+Diskspace:
+/home/kaya1/aavila
+
+8-27-2015
+To build and run a sample tool on Linux*:
+
+    cd source/tools/SimpleExamples
+    make obj-intel64/opcodemix.so
+    ../../../pin -t obj-intel64/opcodemix.so -- /bin/ls
+
+    This will instrument and run /bin/ls, the output for this tool is in
+    opcodemix.out.
+
+Building and Running examples:
+We navigated to cd source/tools/ManualExamples
+Then use 
+$make [filename].test
+and this will create a .so file in the obj-intel64 directory of your current directory. For exampe:
+$make inscount2.test
+
+Afterwards run
+$../../../pin -t obj-intel64/inscount2.so -- /bin/ls
+This will run the file you just made using the pin tool.
+
+8-28-2015
+Count Intructions/Basic Blocks/Threads
+$/home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/MyPinTool
+$make all
+$../../../pin -t obj-intel64/MyPinTool.so -o out.txt -- /bin/ls
+
+
