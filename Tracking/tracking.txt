@@ -48,4 +48,5 @@ Count Number of Functions
 
 Run Graphic w/ Data
 
-
+9-4-15
+combine profiles into one program and run that program with the bench marks
