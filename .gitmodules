@@ -1,3 +1,6 @@
 [submodule "Green-Marl"]
 	path = Green-Marl
 	url = https://github.com/stanford-ppl/Green-Marl.git
+[submodule "graphbench"]
+	path = graphbench
+	url = https://github.com/uwsampa/graphbench.git

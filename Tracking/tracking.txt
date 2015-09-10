@@ -50,3 +50,19 @@ Run Graphic w/ Data
 
 9-4-15
 combine profiles into one program and run that program with the bench marks
+
+9-10-15
+Running a Kronecker graph generator--------------------------------
+
+$cd (top)/graphbench/data/generator
+
+$make all
+
+To produce a data file with 2^2 vertices and an average of 4 edges per vertex, with tsv output, do:
+
+```
+$./generator_omp 4 -e 4 -o output_AA.txt
+
+Combining MyPinTool and proccount from above in order to count Basic Blocks and Function calls-----
+$make BlockFunction_Thesis.test
+$../../../pin -t obj-intel64/BlockFunction_Thesis.so -- /bin/ls

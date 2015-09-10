@@ -61,7 +61,7 @@ $make apps
 Executing Sample Programs-------------------------
 Assume that 'graph_gen' has successfully been built into '(top)/apps/output_cpp/bin'
 Where (top) is kaya1/aavila/pin.../Green-Marl/apps/outpu...
-cd $(top)/apps/output_cpp
+$cd (top)/apps/output_cpp
 
 %%%% Synthesize a uniform random graph (1m nodes, 8m edges).
 bin/graph_gen 1000000 8000000 data/u1m_8m.bin 0
