@@ -66,3 +66,46 @@ $./generator_omp 4 -e 4 -o output_AA.txt
 Combining MyPinTool and proccount from above in order to count Basic Blocks and Function calls-----
 $make BlockFunction_Thesis.test
 $../../../pin -t obj-intel64/BlockFunction_Thesis.so -- /bin/ls
+
+
+9-11-15
+Converting the Kronecker graph created above from .txt to a usable 
+.bin format for Green-Marl -------------------------------------
+
+Change the file to allow create graph using your own input file by substituting the graph_gen.cc and graph_gen_main.cc and graph_gen.h 
+```
+cd Green-Marl/apps/output_cpp/gm_graph/src
+cp <graphbench>/benchmark/green-marl/graph_gen.cc <graphbench>/benchmark/green-marl/graph_gen_main.cc .
+cd ../inc
+cp <graphbench>/benchmark/green-marl/graph_gen.h .
+```
+
+Go to the top of the Green-marl and compile
+
+```
+cd $(top)
+make apps
+```
+
+Generate graph (0 for undirected and 1 for directed graph)
+
+```
+cd $(top)/apps/output_cpp
+bin/graph_gen data/outputName.bin pathToInputFile/inputName.txt 0
+bin/graph_gen data/outputName.bin pathToInputFile/inputName.txt 1
+```
+Running Ultimate work (Pin, BlockFunction.so, sssp, KronGraph.bin, 1 [1 thread])
+
+BlockFunction.so
+$cd /home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples
+$make BlockFunction_Thesis.test
+
+KronGraph.bin
+$cd (top)/graphbench/data/generator
+$./generator_seq 5 -e 4 -o KronGraph5,4_Thesis.txt
+$cd (top)/Green-Marl/apps/output_cpp/
+$./bin/graph_gen data/KronGraph5,4_Thesis.bin /home/kaya1/aavila/thesis-repo/graphbench/data/generator/KronGraph5,4_Thesis.txt 0
+(note the 0 above is for undirected, 1 for directed graph
+
+Final Command
+$/home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/pin -t /home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/obj-intel64/BlockFunction_Thesis.so -- /home/kaya1/aavila/thesis-repo/Green-Marl/apps/output_cpp/bin/sssp /home/kaya1/aavila/thesis-repo/Green-Marl/apps/output_cpp/data/KronGraph5,4_Thesis.bin 1

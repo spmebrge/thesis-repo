@@ -1,0 +1,24 @@
+find Pin tool to count 
+#of Mem calls
+#basic blocks
+#basic block freq
+#instuction calls
+#function calls
+#function call freq
+
+run with genorator_seq [5-10] -e 4 Kronecker graph with above
+then increase edges to
+ 8, 
+16, 
+32.
+
+Draw the graph (as line graph)
+x-axis: #nodes,
+y-axis: #MEM instructions (for example)
+4 lines because edges changed
+
+Then other graphs for other metrics like func. calls, BB, etc.
+
+Learn Python as a scripting languae to run your programs 24 times
+
+/home/faculty7/yjin/cal_group/python_scripts
