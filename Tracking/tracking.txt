@@ -109,3 +109,27 @@ $./bin/graph_gen data/KronGraph5,4_Thesis.bin /home/kaya1/aavila/thesis-repo/gra
 
 Final Command
 $/home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/pin -t /home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/obj-intel64/BlockFunction_Thesis.so -- /home/kaya1/aavila/thesis-repo/Green-Marl/apps/output_cpp/bin/sssp /home/kaya1/aavila/thesis-repo/Green-Marl/apps/output_cpp/data/KronGraph5,4_Thesis.bin 1
+
+09-17-2015
+Python Script
+$cd $(top)/Tracking/
+Created python script called ssspKronecker.py to run the final command with varying vertices and edges, 5-10 and [4, 8, 16, 32] respectively.
+
+The script places any output files (except .bins graphs) in $(top)/Tracking/outputs.
+The outputs directory contains two directories, one for kronecker texts and the other for kronecker metrics (basic block count, function count, instruction count, etc.). 
+
+
+To find a program that finds the number of memory references go to:
+
+$cd /home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples
+
+$../../../pin -t obj-intel64/countreps.so -memory 1 -- /bin/ls
+
+Questions/Further Research:
+/home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/MemTrace/memtrace_simple.cpp
+How to run this program to grab mem instructions?
+
+
+
+
+
