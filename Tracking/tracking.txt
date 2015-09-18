@@ -129,7 +129,11 @@ Questions/Further Research:
 /home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/MemTrace/memtrace_simple.cpp
 How to run this program to grab mem instructions?
 
+9-18-2015
+Memory references
+inside Pin directory
+$(top)source/tools/ManualExamples/pinatrace.cpp
 
-
-
+Sorting metric info by ascending order and outputting function name with call frequency
+$sort -s -n -k 4,4 kroneckerMetric5,16.out | awk '{print $1,"\t",$4}' | less
 
