@@ -5,6 +5,8 @@ Fall 2015
 Diskspace:
 /home/kaya1/aavila
 
+Change Group
+chgrp -R cal .
 8-27-2015
 To build and run a sample tool on Linux*:
 
@@ -23,13 +25,115 @@ and this will create a .so file in the obj-intel64 directory of your current dir
 $make inscount2.test
 
 Afterwards run
+The output file is in inscount.out
 $../../../pin -t obj-intel64/inscount2.so -- /bin/ls
 This will run the file you just made using the pin tool.
 
 8-28-2015
 Count Intructions/Basic Blocks/Threads
+The output file needs to be specified. In this case it is '-o out.txt' for convenience.
 $/home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/MyPinTool
 $make all
 $../../../pin -t obj-intel64/MyPinTool.so -o out.txt -- /bin/ls
 
+9-1-2015
+Count number of functions with how many instructions in each
+The output file is in the same directory under proccount.out
+$make proccount.test 
+$../../../pin -t obj-intel64/proccount.so -- /bin/ls
+$vi proccount.out 
+
+
+Count Number of Functions
+
+Run Graphic w/ Data
+
+9-4-15
+combine profiles into one program and run that program with the bench marks
+
+9-10-15
+Running a Kronecker graph generator--------------------------------
+
+$cd (top)/graphbench/data/generator
+
+$make all
+
+To produce a data file with 2^2 vertices and an average of 4 edges per vertex, with tsv output, do:
+
+```
+$./generator_omp 4 -e 4 -o output_AA.txt
+
+Combining MyPinTool and proccount from above in order to count Basic Blocks and Function calls-----
+$make BlockFunction_Thesis.test
+$../../../pin -t obj-intel64/BlockFunction_Thesis.so -- /bin/ls
+
+
+9-11-15
+Converting the Kronecker graph created above from .txt to a usable 
+.bin format for Green-Marl -------------------------------------
+
+Change the file to allow create graph using your own input file by substituting the graph_gen.cc and graph_gen_main.cc and graph_gen.h 
+```
+cd Green-Marl/apps/output_cpp/gm_graph/src
+cp <graphbench>/benchmark/green-marl/graph_gen.cc <graphbench>/benchmark/green-marl/graph_gen_main.cc .
+cd ../inc
+cp <graphbench>/benchmark/green-marl/graph_gen.h .
+```
+
+Go to the top of the Green-marl and compile
+
+```
+cd $(top)
+make apps
+```
+
+Generate graph (0 for undirected and 1 for directed graph)
+
+```
+cd $(top)/apps/output_cpp
+bin/graph_gen data/outputName.bin pathToInputFile/inputName.txt 0
+bin/graph_gen data/outputName.bin pathToInputFile/inputName.txt 1
+```
+Running Ultimate work (Pin, BlockFunction.so, sssp, KronGraph.bin, 1 [1 thread])
+
+BlockFunction.so
+$cd /home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples
+$make BlockFunction_Thesis.test
+
+KronGraph.bin
+$cd (top)/graphbench/data/generator
+$./generator_seq 5 -e 4 -o KronGraph5,4_Thesis.txt
+$cd (top)/Green-Marl/apps/output_cpp/
+$./bin/graph_gen data/KronGraph5,4_Thesis.bin /home/kaya1/aavila/thesis-repo/graphbench/data/generator/KronGraph5,4_Thesis.txt 0
+(note the 0 above is for undirected, 1 for directed graph
+
+Final Command
+$/home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/pin -t /home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/obj-intel64/BlockFunction_Thesis.so -- /home/kaya1/aavila/thesis-repo/Green-Marl/apps/output_cpp/bin/sssp /home/kaya1/aavila/thesis-repo/Green-Marl/apps/output_cpp/data/KronGraph5,4_Thesis.bin 1
+
+09-17-2015
+Python Script
+$cd $(top)/Tracking/
+Created python script called ssspKronecker.py to run the final command with varying vertices and edges, 5-10 and [4, 8, 16, 32] respectively.
+
+The script places any output files (except .bins graphs) in $(top)/Tracking/outputs.
+The outputs directory contains two directories, one for kronecker texts and the other for kronecker metrics (basic block count, function count, instruction count, etc.). 
+
+
+To find a program that finds the number of memory references go to:
+
+$cd /home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples
+
+$../../../pin -t obj-intel64/countreps.so -memory 1 -- /bin/ls
+
+Questions/Further Research:
+/home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/MemTrace/memtrace_simple.cpp
+How to run this program to grab mem instructions?
+
+9-18-2015
+Memory references
+inside Pin directory
+$(top)source/tools/ManualExamples/pinatrace.cpp
+
+Sorting metric info by ascending order and outputting function name with call frequency
+$sort -s -n -k 4,4 kroneckerMetric5,16.out | awk '{print $1,"\t",$4}' | less
 

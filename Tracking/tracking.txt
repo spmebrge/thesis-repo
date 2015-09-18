@@ -137,3 +137,6 @@ $(top)source/tools/ManualExamples/pinatrace.cpp
 Sorting metric info by ascending order and outputting function name with call frequency
 $sort -s -n -k 4,4 kroneckerMetric5,16.out | awk '{print $1,"\t",$4}' | less
 
+Adding up # of Func. calls on terminal
+$sed '1,7d' kroneckerMetric5,16.out | awk '{sum = sum + $4}END{print sum}' 
+
