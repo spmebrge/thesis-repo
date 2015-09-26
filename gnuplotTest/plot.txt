@@ -1,0 +1,11 @@
+Plotting in Gnuplot:
+
+
+To do a basic sine function with output to the  pngfile
+TERMINAL:
+
+gnuplot
+gnuplot> set term png
+gnuplot> set output "out2.png"
+gnuplot> plot sin(x)title 'Adrian' with linespoints pointtype 3
+
