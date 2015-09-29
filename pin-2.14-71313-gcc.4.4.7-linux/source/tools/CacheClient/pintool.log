@@ -1,0 +1,3 @@
+Pin 2.14 kit 71293
+A:  bb_test.cpp: InitBBCount: 81: assertion failed: numBBs > 0
+

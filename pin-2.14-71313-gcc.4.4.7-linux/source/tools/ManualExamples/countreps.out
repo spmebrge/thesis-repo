@@ -1,0 +1,24 @@
+
+Dynamic Instruction Count
+Total dynamic instructions: 1307615
+
+Op              Count  Repeated Count       %      Zero Count   Mean reps(NZ)
+SCASB              37             327     0.0               0               8
+STOSB              29            9296     0.7               0             320
+STOSQ             273            4316     0.3               0              15
+
+REPS              339           13939     1.1               0              41
+
+
+Dynamic Memory Operation Count
+Memory Ops:     Reads       %          Writes       %
+SCASB             327     0.1               0     0.0
+STOSB               0     0.0            9296     5.5
+STOSQ               0     0.0            4316     2.6
+
+Prog           309817   100.0          167817   100.0
+REPS              327     0.1           13612     8.1
+
+Reads+Writes
+ Whole Program           477634
+ REP prefixed             13939 (2.9%)
