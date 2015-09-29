@@ -137,3 +137,33 @@ $(top)source/tools/ManualExamples/pinatrace.cpp
 Sorting metric info by ascending order and outputting function name with call frequency
 $sort -s -n -k 4,4 kroneckerMetric5,16.out | awk '{print $1,"\t",$4}' | less
 
+Adding up # of Func. calls on terminal
+$sed '1,7d' kroneckerMetric5,16.out | awk '{sum = sum + $4}END{print sum}' 
+
+9-25-2015
+Basic Block Count and Frequenzy
+Created new file in
+$(top)/source/tools/MyPinTool/MyPinTool_Thesis.cpp
+
+The file contains basic blocks by 'address', 'name', and 'instructions'.
+
+To run the file do:
+$make MyPinTool_Thesis.test
+$../../../pin -t obj-intel64/MyPinTool_Thesis.so -o BBLCount.txt -- /bin/ls
+$less BBLCount.txt
+
+9-29-2015
+Read and Write Memory instruction count and sizes (be sure the file is created with the "make" command below
+(usertop)s/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/pinatrace_thesis.cpp
+$make (usertop)s/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/pinatrace_thesis.test
+
+
+Changed ssspKronecker.py script to get metric information on the following:
+* Number of instructions
+* Number of basic blocks
+* Number of threads
+* Memory Read Instructions
+* Memory Read Size
+* Memory Write Instructions
+* Memory Write Size
+

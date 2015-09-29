@@ -151,3 +151,19 @@ To run the file do:
 $make MyPinTool_Thesis.test
 $../../../pin -t obj-intel64/MyPinTool_Thesis.so -o BBLCount.txt -- /bin/ls
 $less BBLCount.txt
+
+9-29-2015
+Read and Write Memory instruction count and sizes (be sure the file is created with the "make" command below)
+(usertop)s/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/pinatrace_thesis.cpp
+$make (usertop)s/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/pinatrace_thesis.test
+
+
+Changed ssspKronecker.py script to get metric information on the following:
+* Number of instructions
+* Number of basic blocks
+* Number of threads
+* Memory Read Instructions
+* Memory Read Size
+* Memory Write Instructions
+* Memory Write Size
+

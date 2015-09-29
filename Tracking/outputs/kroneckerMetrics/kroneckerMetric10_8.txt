@@ -1,0 +1,11 @@
+===============================================
+MyPinTool analysis results: 
+Number of instructions: 7337944
+Number of basic blocks: 1918192
+Number of threads: 8
+===============================================
+Memory Read Instructions: 1574098
+Memory Read Size: 33499
+Memory Write Instructions: 231573
+Memory Write Size: 33094
+#eof
