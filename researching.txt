@@ -1,0 +1,29 @@
+
+
+09-25-2015 GOALS==========================================
+Count number of load instructions
+Count number of store instructions
+
+Count total bytes for load
+Count total bytes for store
+
+Draw a graph with graph size (x-axis) and load instructions (y-axis)
+Draw a graph with graph size (x-axis) and memory bandwidth, bytes/sec (y-axis)
+
+
+
+
+==========================================================
+09-26-2015
+
+Researched git submodule problem of commits. 
+Artcles printed on memory calculations using PIN as well as the overhead created.
+
+Was looking into the load and store instruction counting. 
+The footprint.H file in Memory looks promising as it contains a call to load and stores. 
+Problem is that the loads may be double counted. I think if we subtract the load and store(3) from the total it will account for the duplication.
+
+
+Further read:
+http://web.cs.du.edu/~dconnors/courses/comp3361/assignments/hw7/hw7.txt
+http://mschoebel.info/2012/05/28/instruction-coverage-using-pin/
