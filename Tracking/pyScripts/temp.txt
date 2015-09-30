@@ -1,0 +1,48 @@
+5_4
+Memory Write Size: 33097
+5_8
+Memory Write Size: 33108
+5_16
+Memory Write Size: 33097
+5_32
+Memory Write Size: 33115
+6_4
+Memory Write Size: 33118
+6_8
+Memory Write Size: 33094
+6_16
+Memory Write Size: 33111
+6_32
+Memory Write Size: 33094
+7_4
+Memory Write Size: 33095
+7_8
+Memory Write Size: 33111
+7_16
+Memory Write Size: 33115
+7_32
+Memory Write Size: 33085
+8_4
+Memory Write Size: 33085
+8_8
+Memory Write Size: 33115
+8_16
+Memory Write Size: 33111
+8_32
+Memory Write Size: 33111
+9_4
+Memory Write Size: 33094
+9_8
+Memory Write Size: 33085
+9_16
+Memory Write Size: 33108
+9_32
+Memory Write Size: 33108
+10_4
+Memory Write Size: 33118
+10_8
+Memory Write Size: 33111
+10_16
+Memory Write Size: 33108
+10_32
+Memory Write Size: 33094
