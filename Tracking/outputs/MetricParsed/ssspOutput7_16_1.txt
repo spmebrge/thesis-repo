@@ -1,0 +1,42 @@
+running with 1 threads
+N = 128, M = 1845
+graph loading time=100.075000
+reverse edge creation time=0.356000
+running time=15.082000
+dist[0] = 0
+dist[1] = 73
+dist[2] = 66
+dist[3] = 94
+dist[4] = 64
+dist[5] = 128
+dist[6] = 139
+dist[7] = 57
+dist[8] = 67
+dist[9] = 73
+
+real	0m0.823s
+user	0m0.753s
+sys	0m0.080s
+===============================================
+This application is instrumented by MyPinTool
+See file /home/kaya3/aavila/thesis-repo/Tracking/outputs/kroneckerMetrics/kroneckerMetric7_16_1.txt for analysis results
+===============================================
+running with 1 threads
+N = 128, M = 1845
+graph loading time=97.453000
+reverse edge creation time=0.377000
+running time=13.504000
+dist[0] = 0
+dist[1] = 73
+dist[2] = 66
+dist[3] = 94
+dist[4] = 64
+dist[5] = 128
+dist[6] = 139
+dist[7] = 57
+dist[8] = 67
+dist[9] = 73
+
+real	0m0.823s
+user	0m0.970s
+sys	0m0.085s

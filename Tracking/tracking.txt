@@ -173,3 +173,9 @@ Changed ssspKronecker.py script to get metric information on the following:
 2. ssspKronecker.py
 3. ssspKroneckerNoPin.py
 4. getKroneckerMetric.py
+
+Re-performed instructions above to create .bin graphs from .txt then re-compiled Green-Marl using 
+$make apps
+Insructions are found on date 9-11-15
+Made sure that the new created .bin files are of different increasing sizes and not the origina 28 bytes for each. 
+* ran the ./ssspKronecker.py command and the new metrics found are increasing, which is what we want.
