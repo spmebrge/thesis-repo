@@ -22,10 +22,10 @@ for vertices in range(5,11):
       os.system("%(top)s/Green-Marl/apps/output_cpp/bin/graph_gen %(top)s/Green-Marl/apps/output_cpp/data/KronGraph%(vertices)i_%(edges)i_Thesis.bin %(top)s/graphbench/data/generator/KronGraph%(vertices)i_%(edges)i_Thesis.txt 0" %locals())
 
       #run pin using pinatrace (Mem R/W) on sssp program
-      os.system("%(usertop)s/pin-2.14-71313-gcc.4.4.7-linux/pin -t %(usertop)s/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/obj-intel64/pinatrace_thesis.so  -- %(top)s/Green-Marl/apps/output_cpp/bin/sssp %(top)s/Green-Marl/apps/output_cpp/data/KronGraph%(vertices)i_%(edges)i_Thesis.bin 1" %locals())
+      os.system("%(top)s/pin-2.14-71313-gcc.4.4.7-linux/pin -t %(top)s/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples/obj-intel64/pinatrace_thesis.so  -- %(top)s/Green-Marl/apps/output_cpp/bin/sssp %(top)s/Green-Marl/apps/output_cpp/data/KronGraph%(vertices)i_%(edges)i_Thesis.bin 1" %locals())
 
       #run pin using new MyPinTool (Mem R/W) on sssp program
-      os.system("%(usertop)s/pin-2.14-71313-gcc.4.4.7-linux/pin -t %(usertop)s/pin-2.14-71313-gcc.4.4.7-linux/source/tools/MyPinTool/obj-intel64/MyPinTool_Thesis.so -o %(top)s/Tracking/outputs/kroneckerMetrics/kroneckerMetric%(vertices)i_%(edges)i.txt -- %(top)s/Green-Marl/apps/output_cpp/bin/sssp %(top)s/Green-Marl/apps/output_cpp/data/KronGraph%(vertices)i_%(edges)i_Thesis.bin 1" %locals())
+      os.system("%(top)s/pin-2.14-71313-gcc.4.4.7-linux/pin -t %(top)s/pin-2.14-71313-gcc.4.4.7-linux/source/tools/MyPinTool/obj-intel64/MyPinTool_Thesis.so -o %(top)s/Tracking/outputs/kroneckerMetrics/kroneckerMetric%(vertices)i_%(edges)i.txt -- %(top)s/Green-Marl/apps/output_cpp/bin/sssp %(top)s/Green-Marl/apps/output_cpp/data/KronGraph%(vertices)i_%(edges)i_Thesis.bin 1" %locals())
 
       #copy default .out info into a metric .txt file
       os.system("cat %(top)s/Tracking/pyScripts/pinatrace_thesis.out >> %(top)s/Tracking/outputs/kroneckerMetrics/kroneckerMetric%(vertices)i_%(edges)i.txt" %locals())

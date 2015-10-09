@@ -8,7 +8,7 @@ import os
 #The .bin files will be created for each .txt previously generated
 #The pin tool will use the .so algorithm to count the number of metrics on the sssp benchmark with the given .bins
 
-usertop="/home/kaya1/aavila"
+usertop="/home/kaya3/aavila"
 top="%(usertop)s/thesis-repo" %locals()
 
 #os.system("cd /home/kaya1/aavila/pin-2.14-71313-gcc.4.4.7-linux/source/tools/ManualExamples"%locals())
