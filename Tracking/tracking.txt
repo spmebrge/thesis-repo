@@ -167,3 +167,9 @@ Changed ssspKronecker.py script to get metric information on the following:
 * Memory Write Instructions
 * Memory Write Size
 
+
+10-9-2015
+1. createKroneckerGraphs.py
+2. ssspKronecker.py
+3. ssspKroneckerNoPin.py
+4. getKroneckerMetric.py
